@@ -29,17 +29,25 @@ function renderProducts () {
         return Math.floor(Math.random() * state.allProducts.length );
     }
 
-    let product1 = pickRandomProd ();
-    let product2 = pickRandomProd ();
-    let product3 = pickRandomProd ();
+    //chatgpt help here until comment again
+    let product1, product2, product3;
 
-
-    while (product1 === product2 ) {
+    while (!product1 || !product2 || !product3 || product1 === product2 || product1 === product3 || product2 === product3) {
+        product1 = pickRandomProd();
         product2 = pickRandomProd();
-    }
-    while (product2 === product3) {
         product3 = pickRandomProd();
     }
+    // let product1 = pickRandomProd ();
+    // let product2 = pickRandomProd ();
+    // let product3 = pickRandomProd ();
+
+
+    // while (product1 === product2 ) {
+    //     product2 = pickRandomProd();
+    // }
+    // while (product2 === product3) {
+    //     product3 = pickRandomProd();
+    // }
 
     image1.src = state.allProducts[product1].imageFile;
     image1.alt = state.allProducts[product1].name;
