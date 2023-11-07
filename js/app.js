@@ -1,0 +1,117 @@
+
+const productsContainer = document.getElementById("products");
+const reportContainer = document.getElementById("report");
+
+const image1 = document.querySelector('#products img:first-child');
+const image2 = document.querySelector('#products img:nth-child(2)');
+const image3 = document.querySelector('#products img:nth-child(3)');
+
+const button = document.getElementById("showResults");
+
+let state = {
+    numClicksSoFar: 0,
+    numClicksAllowed: 5,
+    allProducts: [],
+
+};
+
+function Product( name, image) {
+    this.name = name;
+    this.imageFile = image;
+    this.votes = 0;
+    this.views = 0;
+    state.allProducts.push(this);
+}
+
+function renderProducts () {
+    
+    function pickRandomProd() {
+        return Math.floor(Math.random() * state.allProducts.length );
+    }
+
+    let product1 = pickRandomProd ();
+    let product2 = pickRandomProd ();
+    let product3 = pickRandomProd ();
+
+
+    while (product1 === product2 ) {
+        product2 = pickRandomProd();
+    }
+    while (product2 === product3) {
+        product3 = pickRandomProd();
+    }
+
+    image1.src = state.allProducts[product1].imageFile;
+    image1.alt = state.allProducts[product1].name;
+
+    image2.src = state.allProducts[product2].imageFile;
+    image2.alt = state.allProducts[product2].name;
+
+    image3.src = state.allProducts[product3].imageFile;
+    image3.alt = state.allProducts[product3].name;
+
+    state.allProducts[product1].views++;
+    state.allProducts[product2].views++;
+    state.allProducts[product3].views++;
+}
+
+function renderResultsButton() {
+    button.style.display = "block";
+}
+
+function renderResults() {
+    console.log("Show the results");
+}
+
+function handleClick(event) {
+    let prodName = event.target.alt;
+
+    for (let i = 0; i < state.allProducts.length; i++) {
+        if (prodName === state.allProducts[i].name){
+            state.allProducts[i].votes++;
+            break;
+        }
+    }
+
+    state.numClicksSoFar++;
+
+    if(state.numClicksSoFar >= state.numClicksAllowed) {
+        removeEventListener();
+        renderResultsButton();
+     } else {
+        renderProducts();
+    }   
+}
+
+function setupListeners() {
+ productsContainer.addEventListener("click", handleClick);
+ button.addEventListener("click", renderResults)   
+}
+
+function removeEventListener() {
+    productsContainer.removeEventListener("click", handleClick);
+}
+
+new Product("Travel Bag", "product-images/bag.jpg");
+new Product("Banana Slicer", "product-images/banana-slicer.jpg");
+new Product("Grossly Teched", "product-images/bathroom.jpg")
+new Product("Boots", "product-images/boots.jpg");
+new Product("Breakfast Machine", "product-images/breakfast-maker.jpg");
+new Product("Meatball Gum", "product-images/bubblegum.jpg");
+new Product("Chair", "product-images/chair.jpg");
+new Product("Toy", "product-images/cthulhu.jpg");
+new Product("Dog Duck", "product-images/dog-duck.jpg");
+new Product("Dragon Meat", "product-images/dragon.jpg");
+new Product("Spoon Pen", "product-images/pen.jpg" );
+new Product("Dog Booties", "product-images/pet-sweep.jpg");
+new Product("Pizza Scissors", "product-images/scissors.jpg");
+new Product("Shark", "product-images/shark.jpg");
+new Product("Baby Mop", "product-images/sweep.png");
+new Product("Sleeping Bag", "product-images/tauntaun.jpg");
+new Product("Unicorn Meat", "product-images/unicorn.jpg");
+new Product("Water Can Game", "product-images/water-can.jpg");
+new Product("Wine Glass Drinking Game", "product-images/wine-glass.jpg" );
+
+
+renderProducts();
+setupListeners();
