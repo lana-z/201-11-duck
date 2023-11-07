@@ -101,7 +101,7 @@ function removeEventListener() {
 }
 
 new Product("Travel Bag", "product-images/bag.jpg");
-new Product("Banana Slicer", "product-images/banana-slicer.jpg");
+new Product("Banana Slicer", "product-images/banana.jpg");
 new Product("Grossly Teched", "product-images/bathroom.jpg")
 new Product("Boots", "product-images/boots.jpg");
 new Product("Breakfast Machine", "product-images/breakfast-maker.jpg");
