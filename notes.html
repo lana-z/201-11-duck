@@ -17,3 +17,9 @@
 <img src="product-images/unicorn.jpg" alt="unicorn-meat">
 <img src="product-images/water-can.jpg" alt="challenging-water-can">
 <img src="product-images/wine-glass.jpg" alt="challenging-wine-glass">
+
+while (!product1 || !product2 || !product3 || product1 === product2 || product1 === product3 || product2 === product3) {
+    product1 = pickRandomProd();
+    product2 = pickRandomProd();
+    product3 = pickRandomProd();
+}
