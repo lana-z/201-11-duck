@@ -76,8 +76,8 @@ function renderResults() {
 
     for (let i = 0; i < state.allProducts.length; i++ ){
         prodName.push( state.allProducts[i].name );
-        productSelection.push( state.allProducts[i].selection );
-        productViews.push(state.allProducts[i])
+        productSelection.push( state.allProducts[i].votes );
+        productViews.push(state.allProducts[i].views)
     }
 
     const data = {
@@ -86,19 +86,20 @@ function renderResults() {
             {
                 label: "Selected",
                 data: productSelection,
-                // borderWidth: 1,
+                borderWidth: 1,
     
             },
             {
                 label: "Viewed",
-                data: productViews
-                // borderWidth: 1,
+                data: productViews,
+                borderWidth: 1,
             }
         ]
     }
+    debugger
 
     const config = {
-        type: 'bubble',
+        type: 'bar',
         data: data, 
         options: {
             scales: {
