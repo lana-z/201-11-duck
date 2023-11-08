@@ -1,10 +1,12 @@
+* {
+  max-width: 960px;
+}
 header {
   color: #4d1c02;
 }
 
 main {
-  background-color: #fc8c03;
-  color: #111; 
+  color: #4d1c02;
 }
 
 h1 {
@@ -13,6 +15,7 @@ h1 {
 }
 
 h3 {
+  background-color: #fc8c03;
   font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
   padding: 15px;
 }
@@ -24,15 +27,15 @@ img {
 }
 
 #products {
-  background-color: #f7f3f0;
-  margin: 40px;
+  margin: 15px;
 }
 
 #showResults {
+  background-color: #fdaf4f;
   color: #4d1c02;
   font-family: Gill Sans;
   height: 40px;
-  border: solid red;
+  border: solid 3px #4d1c02;
   background-color: #f7f3f0;
   margin: 15px;
 }

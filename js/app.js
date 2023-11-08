@@ -10,9 +10,8 @@ const button = document.getElementById("showResults");
 
 let state = {
     numClicksSoFar: 0,
-    numClicksAllowed: 5,
+    numClicksAllowed: 25,
     allProducts: [],
-
 };
 
 function Product( name, image) {
@@ -63,12 +62,21 @@ function renderProducts () {
     state.allProducts[product3].views++;
 }
 
-function renderResultsButton() {
-    button.style.display = "block";
-}
+// function renderResultsButton() {    
+//     button.style.display = "block";
+// }
 
 function renderResults() {
-    console.log("Show the results");
+    const resultsList = document.createElement("ul");
+    for (const product of state.allProducts) {
+      const listItem = document.createElement("li");
+      listItem.textContent = `${product.name}: Votes - ${product.votes}, Views - ${product.views}`;
+      resultsList.appendChild(listItem);
+    }
+    reportContainer.appendChild(resultsList);
+  
+    // Hide the "View Results" button
+    button.style.display = "none";
 }
 
 function handleClick(event) {
@@ -104,7 +112,7 @@ new Product("Travel Bag", "product-images/bag.jpg");
 new Product("Banana Slicer", "product-images/banana.jpg");
 new Product("Grossly Teched", "product-images/bathroom.jpg")
 new Product("Boots", "product-images/boots.jpg");
-new Product("Breakfast Machine", "product-images/breakfast-maker.jpg");
+new Product("Breakfast Machine", "product-images/breakfast.jpg");
 new Product("Meatball Gum", "product-images/bubblegum.jpg");
 new Product("Chair", "product-images/chair.jpg");
 new Product("Toy", "product-images/cthulhu.jpg");
