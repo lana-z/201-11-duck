@@ -1,6 +1,6 @@
 
 const productsContainer = document.getElementById("products");
-const reportContainer = document.getElementById("report");
+const resultsContainer = document.getElementById("results");
 
 const image1 = document.querySelector('#products img:first-child');
 const image2 = document.querySelector('#products img:nth-child(2)');
@@ -56,6 +56,7 @@ function renderProducts () {
 }
 
 
+
 function renderResults() {
     const resultsList = document.createElement("ul");
     for (const product of state.allProducts) {
@@ -63,11 +64,55 @@ function renderResults() {
       listItem.textContent = `${product.name}: Votes - ${product.votes}, Views - ${product.views}`;
       resultsList.appendChild(listItem);
     }
-    reportContainer.appendChild(resultsList);
+    
+    resultsContainer.appendChild(resultsList);
   
     // Hide the "View Results" button
     button.style.display = "none";
+
+    let prodName = []
+    let productSelection = []
+    let productViews = []
+
+    for (let i = 0; i < state.allProducts.length; i++ ){
+        prodName.push( state.allProducts[i].name );
+        productSelection.push( state.allProducts[i].votes );
+        productViews.push(state.allProducts[i].views)
+    }
+
+    const data = {
+        labels: prodName, 
+        datasets: [
+            {
+                label: "Selected",
+                data: productSelection,
+                borderWidth: 1,
+    
+            },
+            {
+                label: "Viewed",
+                data: productViews,
+                borderWidth: 1,
+            }
+        ]
+    }
+    debugger
+
+    const config = {
+        type: 'bar',
+        data: data, 
+        options: {
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    }
+
+    const myChart = new Chart(resultsContainer, config);
 }
+
 
 function handleClick(event) {
     let prodName = event.target.alt;
@@ -83,7 +128,7 @@ function handleClick(event) {
 
     if(state.numClicksSoFar >= state.numClicksAllowed) {
         removeEventListener();
-        renderResultsButton();
+        // renderResultsButton();
      } else {
         renderProducts();
     }   

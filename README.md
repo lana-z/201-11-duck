@@ -9,7 +9,7 @@ This is the Odd Duck Products lab, class 11, November 6, 2023.
 ### Links and Resources
 
 * John's demo
-*
+* Code review 
 
 ### Lighthouse Accessibility Report Score
 
@@ -25,3 +25,12 @@ This is the Odd Duck Products lab, class 11, November 6, 2023.
 * Fixed functionality and broken image
 * Now showing results
 * Changed clicks to 25 🙂
+
+* Lab 12: 
+* Prevented duplicates in next round of images 
+* Getting this error on my chart : chart.min.js:13 Failed to create chart: can't acquire context from the given item
+* Think it has to do with the way I have my chart config set up. Will see if I can fix tomorrow! 
+
+* WEDNESDAY: 
+* Fixed the chart display by changing to canvas tag and fixed array problems. 
+* Need to style the chart. 
