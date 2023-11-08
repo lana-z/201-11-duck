@@ -24,29 +24,22 @@ function Product( name, image) {
 
 function renderProducts () {
     
-    function pickRandomProd() {
-        return Math.floor(Math.random() * state.allProducts.length );
-    }
-
-    //chatgpt help here until comment again
     let product1, product2, product3;
 
-    while (!product1 || !product2 || !product3 || product1 === product2 || product1 === product3 || product2 === product3) {
-        product1 = pickRandomProd();
-        product2 = pickRandomProd();
-        product3 = pickRandomProd();
+    function pickRandomProd() {
+        
+        let newThree;
+        do {
+            newThree =  Math.floor(Math.random() * state.allProducts.length );
+        } while (newThree === product1 || newThree === product2 || newThree === product3);
+        return newThree;
     }
-    // let product1 = pickRandomProd ();
-    // let product2 = pickRandomProd ();
-    // let product3 = pickRandomProd ();
+    
+    product1 = pickRandomProd();
+    product2 = pickRandomProd();
+    product3 = pickRandomProd();
 
 
-    // while (product1 === product2 ) {
-    //     product2 = pickRandomProd();
-    // }
-    // while (product2 === product3) {
-    //     product3 = pickRandomProd();
-    // }
 
     image1.src = state.allProducts[product1].imageFile;
     image1.alt = state.allProducts[product1].name;
@@ -62,9 +55,6 @@ function renderProducts () {
     state.allProducts[product3].views++;
 }
 
-// function renderResultsButton() {    
-//     button.style.display = "block";
-// }
 
 function renderResults() {
     const resultsList = document.createElement("ul");
