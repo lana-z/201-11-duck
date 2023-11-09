@@ -10,7 +10,7 @@ const button = document.getElementById("showResults");
 
 let state = {
     numClicksSoFar: 0,
-    numClicksAllowed: 25,
+    numClicksAllowed: 5,
     allProducts: [],
 };
 
@@ -87,16 +87,17 @@ function renderResults() {
                 label: "Selected",
                 data: productSelection,
                 borderWidth: 1,
-    
+                backgroundColor: [
+                    'red']
             },
             {
                 label: "Viewed",
                 data: productViews,
                 borderWidth: 1,
+                backgroundColor: ['brown']
             }
         ]
     }
-    debugger
 
     const config = {
         type: 'bar',
