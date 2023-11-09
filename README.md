@@ -34,3 +34,7 @@ This is the Odd Duck Products lab, class 11, November 6, 2023.
 * WEDNESDAY: 
 * Fixed the chart display by changing to canvas tag and fixed array problems. 
 * Need to style the chart. 
+
+* Chart styled. 
+* Added js for Show Results button to hide until number of clicks reached but not displaying correctly after the clicks are reached, so commented that code block out.
+
