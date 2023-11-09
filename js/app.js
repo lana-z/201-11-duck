@@ -10,7 +10,7 @@ const button = document.getElementById("showResults");
 
 let state = {
     numClicksSoFar: 0,
-    numClicksAllowed: 5,
+    numClicksAllowed: 25,
     allProducts: [],
 };
 
@@ -55,7 +55,27 @@ function renderProducts () {
     state.allProducts[product3].views++;
 }
 
+// button.style.display = "none";
 
+// function handleClick(event) {
+//     let prodName = event.target.alt;
+
+//     for (let i = 0; i < state.allProducts.length; i++) {
+//         if (prodName === state.allProducts[i].name){
+//             state.allProducts[i].votes++;
+//             break;
+//         }
+//     }
+
+//     state.numClicksSoFar++;
+
+//     if(state.numClicksSoFar === state.numClicksAllowed) {
+//         removeEventListener();
+//         button.style.display = "block";
+//     } else {
+//         renderProducts();
+//     }
+// }
 
 function renderResults() {
     const resultsList = document.createElement("ul");
@@ -67,7 +87,6 @@ function renderResults() {
     
     resultsContainer.appendChild(resultsList);
   
-    // Hide the "View Results" button
     button.style.display = "none";
 
     let prodName = []
@@ -129,7 +148,6 @@ function handleClick(event) {
 
     if(state.numClicksSoFar >= state.numClicksAllowed) {
         removeEventListener();
-        // renderResultsButton();
      } else {
         renderProducts();
     }   
