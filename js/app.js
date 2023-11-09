@@ -14,6 +14,8 @@ let state = {
     allProducts: [],
 };
 
+getProductsFromLocalStorage();
+
 function Product( name, image) {
     this.name = name;
     this.imageFile = image;
@@ -56,26 +58,6 @@ function renderProducts () {
 }
 
 // button.style.display = "none";
-
-// function handleClick(event) {
-//     let prodName = event.target.alt;
-
-//     for (let i = 0; i < state.allProducts.length; i++) {
-//         if (prodName === state.allProducts[i].name){
-//             state.allProducts[i].votes++;
-//             break;
-//         }
-//     }
-
-//     state.numClicksSoFar++;
-
-//     if(state.numClicksSoFar === state.numClicksAllowed) {
-//         removeEventListener();
-//         button.style.display = "block";
-//     } else {
-//         renderProducts();
-//     }
-// }
 
 function renderResults() {
     const resultsList = document.createElement("ul");
@@ -140,6 +122,7 @@ function handleClick(event) {
     for (let i = 0; i < state.allProducts.length; i++) {
         if (prodName === state.allProducts[i].name){
             state.allProducts[i].votes++;
+            saveProductsToLocalStorage();
             break;
         }
     }
@@ -185,3 +168,15 @@ new Product("Wine Glass Drinking Game", "product-images/wine-glass.jpg" );
 
 renderProducts();
 setupListeners();
+
+function saveProductsToLocalStorage() {
+    const productsJSON = JSON.stringify(state.allProducts);
+    localStorage.setItem('products', productsJSON);
+  }
+
+function getProductsFromLocalStorage() {
+const productsJSON = localStorage.getItem('products');
+if (productsJSON) {
+    state.allProducts = JSON.parse(productsJSON);
+}
+}

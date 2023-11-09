@@ -10,6 +10,7 @@ This is the Odd Duck Products lab, class 11, November 6, 2023.
 
 * John's demo
 * Code review 
+* Chatgpt
 
 ### Lighthouse Accessibility Report Score
 
@@ -38,3 +39,5 @@ This is the Odd Duck Products lab, class 11, November 6, 2023.
 * Chart styled. 
 * Added js for Show Results button to hide until number of clicks reached but not displaying correctly after the clicks are reached, so commented that code block out.
 
+* ChatGPT for entire local storage lab
+* Several issues with it as is
