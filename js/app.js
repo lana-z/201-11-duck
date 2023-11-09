@@ -55,7 +55,27 @@ function renderProducts () {
     state.allProducts[product3].views++;
 }
 
+// button.style.display = "none";
 
+// function handleClick(event) {
+//     let prodName = event.target.alt;
+
+//     for (let i = 0; i < state.allProducts.length; i++) {
+//         if (prodName === state.allProducts[i].name){
+//             state.allProducts[i].votes++;
+//             break;
+//         }
+//     }
+
+//     state.numClicksSoFar++;
+
+//     if(state.numClicksSoFar === state.numClicksAllowed) {
+//         removeEventListener();
+//         button.style.display = "block";
+//     } else {
+//         renderProducts();
+//     }
+// }
 
 function renderResults() {
     const resultsList = document.createElement("ul");
@@ -67,7 +87,6 @@ function renderResults() {
     
     resultsContainer.appendChild(resultsList);
   
-    // Hide the "View Results" button
     button.style.display = "none";
 
     let prodName = []
@@ -87,16 +106,17 @@ function renderResults() {
                 label: "Selected",
                 data: productSelection,
                 borderWidth: 1,
-    
+                backgroundColor: [
+                    'red']
             },
             {
                 label: "Viewed",
                 data: productViews,
                 borderWidth: 1,
+                backgroundColor: ['brown']
             }
         ]
     }
-    debugger
 
     const config = {
         type: 'bar',
@@ -128,7 +148,6 @@ function handleClick(event) {
 
     if(state.numClicksSoFar >= state.numClicksAllowed) {
         removeEventListener();
-        // renderResultsButton();
      } else {
         renderProducts();
     }   

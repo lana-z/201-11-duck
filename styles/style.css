@@ -21,9 +21,10 @@ h3 {
 }
 
 img {
-  max-height: 80px;
-  max-width: 80px;
+  max-height: 100px;
+  max-width: 100px;
   border: brown solid 3px;
+  margin-right: 15px;
 }
 
 #products {
@@ -41,5 +42,5 @@ img {
 }
 
 #canvas {
-  
+  padding: 30px;
 }
