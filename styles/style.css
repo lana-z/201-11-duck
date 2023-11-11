@@ -29,9 +29,16 @@ img {
 
 #products {
   margin: 15px;
+  background-color: goldenrod;
+  min-height: 200px;
 }
 
-#showResults {
+#results {
+  border: solid 5px lightslategray;
+
+}
+
+#showResultsButton {
   background-color: #fdaf4f;
   color: #4d1c02;
   font-family: Gill Sans;

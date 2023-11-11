@@ -23,3 +23,51 @@ while (!product1 || !product2 || !product3 || product1 === product2 || product1 
     product2 = pickRandomProd();
     product3 = pickRandomProd();
 }
+
+function renderProducts () {
+    
+    let product1, product2, product3;
+
+    function pickRandomProd() {
+        
+        let newThree;
+        do {
+            newThree =  Math.floor(Math.random() * state.allProducts.length );
+        } while (newThree === product1 || newThree === product2 || newThree === product3);
+        return newThree;
+    }
+    
+    product1 = pickRandomProd();
+    product2 = pickRandomProd();
+    product3 = pickRandomProd();
+
+
+
+    image1.src = state.allProducts[product1].imageFile;
+    image1.alt = state.allProducts[product1].name;
+
+    image2.src = state.allProducts[product2].imageFile;
+    image2.alt = state.allProducts[product2].name;
+
+    image3.src = state.allProducts[product3].imageFile;
+    image3.alt = state.allProducts[product3].name;
+
+    state.allProducts[product1].views++;
+    state.allProducts[product2].views++;
+    state.allProducts[product3].views++;
+}
+
+// button.style.display = "none";
+
+function saveProductsToLocalStorage() {
+    const productsJSON = JSON.stringify(state.allProducts);
+    localStorage.setItem('products', productsJSON);
+  }
+
+
+function getProductsFromLocalStorage() {
+    const productsJSON = localStorage.getItem('products');
+    if (productsJSON) {
+        state.allProducts = JSON.parse(productsJSON);
+    }
+    }
