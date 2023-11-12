@@ -14,6 +14,8 @@ let state = {
     renderedProducts: new Set(),
 };
 
+button.style.display = "none";
+
 function Product(name, image) {
     this.name = name;
     this.imageFile = image;
@@ -98,7 +100,7 @@ function renderProducts () {
     }
     
     function renderButton() {
-        button.disabled = false;
+        button.style.display = "inline";
       }
 
 function renderResults() {
