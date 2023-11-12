@@ -10,6 +10,7 @@ This is the Odd Duck Products lab, class 11, November 6, 2023.
 
 * John's demo
 * Code review 
+* Chatgpt
 
 ### Lighthouse Accessibility Report Score
 
@@ -21,7 +22,7 @@ This is the Odd Duck Products lab, class 11, November 6, 2023.
 * Still having trouble with some of the js and chatgpt is suggesting more comprehensive changes, so I am calling it a night.
 * I put in a TA help reequest in remo but by the time I was ready for TA help it was too late/ no more TAs were there. 
 
-* TUESDAY: 
+#### TUESDAY: 
 * Fixed functionality and broken image
 * Now showing results
 * Changed clicks to 25 🙂
@@ -31,10 +32,15 @@ This is the Odd Duck Products lab, class 11, November 6, 2023.
 * Getting this error on my chart : chart.min.js:13 Failed to create chart: can't acquire context from the given item
 * Think it has to do with the way I have my chart config set up. Will see if I can fix tomorrow! 
 
-* WEDNESDAY: 
+#### WEDNESDAY: 
 * Fixed the chart display by changing to canvas tag and fixed array problems. 
 * Need to style the chart. 
 
 * Chart styled. 
 * Added js for Show Results button to hide until number of clicks reached but not displaying correctly after the clicks are reached, so commented that code block out.
 
+* ChatGPT for entire local storage lab
+* Several issues with it as is
+
+#### Saturday
+* Walked through Chris' code and translated to my code. 
