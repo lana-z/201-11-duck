@@ -1,5 +1,6 @@
 * {
   max-width: 960px;
+  text-align: center;
 }
 header {
   color: #4d1c02;
@@ -21,8 +22,8 @@ h3 {
 }
 
 img {
-  max-height: 100px;
-  max-width: 100px;
+  max-height: 200px;
+  max-width: 200px;
   border: brown solid 3px;
   margin-right: 15px;
 }
@@ -33,20 +34,22 @@ img {
 }
 
 #results {
-  border: solid 5px  #fc8c03;
 
 }
 
 #showResultsButton {
-  background-color: #fdaf4f;
   color: #4d1c02;
   font-family: Gill Sans;
-  height: 40px;
+  height: 50px;
   border: solid 3px #4d1c02;
-  background-color: #f7f3f0;
+  background-color: #fc8c03;
   margin: 15px;
 }
 
 #canvas {
   padding: 30px;
+}
+
+footer {
+  margin: 15px;
 }
