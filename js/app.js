@@ -11,10 +11,10 @@ let state = {
     numClicksSoFar: 0,
     numClicksAllowed: 25,
     allProducts: [],
-    renderedProducts: new Products(),
+    renderedProducts: new Set(),
 };
 
-function Product( name, image) {
+function Product(name, image) {
     this.name = name;
     this.imageFile = image;
     this.votes = 0;
@@ -61,27 +61,27 @@ function renderProducts () {
         return Math.floor(Math.random() * state.allProducts.length);
     }
 
-        let currentProducts = new Products();
+        let currentThree = new Set();
 
         let product1 = pickRandomProd();
         while (state.renderedProducts.has(product1)) {
           product1 = pickRandomProd();
         }
-        currentProducts.add(product1);
+        currentThree.add(product1);
       
         let product2 = pickRandomProd();
         while (state.renderedProducts.has(product2) || product2 === product1) {
           product2 = pickRandomProd();
         }
-        currentProducts.add(product2);
+        currentThree.add(product2);
       
         let product3 = pickRandomProd();
         while (state.renderedProducts.has(product3) || product3 === product1 || product3 === product2) {
           product3 = pickRandomProd();
         }
-        currentProducts.add(product3);
+        currentThree.add(product3);
       
-        state.renderedProducts = currentProducts;
+        state.renderedProducts = currentThree;
 
         image1.src = state.allProducts[product1].imageFile;
         image1.alt = state.allProducts[product1].name;

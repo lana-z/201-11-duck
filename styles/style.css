@@ -29,12 +29,11 @@ img {
 
 #products {
   margin: 15px;
-  background-color: goldenrod;
   min-height: 200px;
 }
 
 #results {
-  border: solid 5px lightslategray;
+  border: solid 5px  #fc8c03;
 
 }
 
